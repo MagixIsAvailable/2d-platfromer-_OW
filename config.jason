@@ -1,0 +1,87 @@
+// config.json
+{
+  "environments": [
+    {
+      "id": "stage1",
+      "name": "The Pit",
+      "background": "assets/environments/pit_background.png", // Path to background image
+      "platforms": [
+        { "pos": [0, -0.5, 0], "size": [30, 1, 5] }, // Ground
+        { "pos": [-8, 4, 0], "size": [7, 0.5, 3] },
+        { "pos": [8, 4, 0], "size": [7, 0.5, 3] }
+      ]
+    },
+    {
+      "id": "stage2",
+      "name": "The Temple",
+      "background": "assets/environments/temple_background.jpg",
+      "platforms": [
+        { "pos": [0, -0.5, 0], "size": [30, 1, 5] },
+        { "pos": [0, 5, 0], "size": [10, 0.5, 4]} // Central platform
+      ]
+    }
+    // Add more environment definitions here
+  ],
+  "characters": [
+    {
+      "id": "ninja_blue",
+      "name": "Sub-Zeroish",
+      "type": "spritesheet", // Indicate type
+      "asset": "assets/characters/ninja_blue_sheet.png", // Path to spritesheet
+      "spriteData": {
+        "frameWidth": 64,   // Width of a single frame in pixels
+        "frameHeight": 64,  // Height of a single frame in pixels
+        "scale": 3.0,      // Visual scale factor for the sprite plane
+        "animations": {
+          "idle":    { "frames": [0, 1, 2, 1], "fps": 8 }, // Array of frame indices, frames per second
+          "walk":    { "frames": [4, 5, 6, 7], "fps": 12 },
+          "jump":    { "frames": [8], "fps": 1 }, // Single frame
+          "fall":    { "frames": [9], "fps": 1 },
+          "attack":  { "frames": [10, 11, 10], "fps": 15, "loop": false }, // Doesn't loop
+          "hit_stun":{ "frames": [12], "fps": 1 }
+          // Define other animations (block, knockout, etc.)
+        }
+      },
+      "physics": { // Collider dimensions
+        "height": 1.8,
+        "radius": 0.4
+      }
+    },
+    {
+        "id": "ninja_red",
+        "name": "Scorpionish",
+        "type": "spritesheet",
+        "asset": "assets/characters/ninja_red_sheet.png",
+        "spriteData": {
+          "frameWidth": 64,
+          "frameHeight": 64,
+          "scale": 3.0,
+          "animations": { // Copy or define unique animations
+            "idle":    { "frames": [0, 1, 2, 1], "fps": 8 },
+            "walk":    { "frames": [4, 5, 6, 7], "fps": 12 },
+            "jump":    { "frames": [8], "fps": 1 },
+            "fall":    { "frames": [9], "fps": 1 },
+            "attack":  { "frames": [10, 11, 10], "fps": 15, "loop": false },
+            "hit_stun":{ "frames": [12], "fps": 1 }
+          }
+        },
+        "physics": {
+          "height": 1.8,
+          "radius": 0.4
+        }
+      },
+    {
+      "id": "robot_fighter",
+      "name": "Cyborg",
+      "type": "model", // Keep support for models
+      "asset": "assets/characters/robot.glb", // Path to GLB model
+      "scale": 1.5,     // Visual scale for the model
+      "physics": {
+        "height": 2.0, // Adjust physics size for models too
+        "radius": 0.5
+      }
+      // Add animation names mapping if needed for models later
+    }
+    // Add more character definitions here
+  ]
+}
